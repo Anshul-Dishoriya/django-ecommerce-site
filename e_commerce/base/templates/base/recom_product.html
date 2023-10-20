@@ -1,0 +1,26 @@
+{% extends "main.html" %}
+
+{% block content %}
+<div class="album py-5 ">
+    <div class="container">
+      <h3 class="text-white">Products that might great fit for you</h3>
+      <div class="row justify-between row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 g-3">
+        {% for prod in products  %}
+        <div class="col d-flex justify-content-center ">
+            <div class="card shadow-sm" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">{{prod.name}}</h5>
+                  <h6 class="line-clamp">Price: {{prod.price}} Rs</h6>
+                  <p class="card-text">{{prod.description}}</p>
+                  <p class="card-text">{{prod.category}}</p>
+                  <a href="{% url "view-product" prod.id %}" class="btn btn-outline-success ">View</a>
+                  <a href="{% url "add-cart" prod.id %}" class="btn btn-outline-success ">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+      </div>
+    </div>
+  </div>
+{% endblock content %}

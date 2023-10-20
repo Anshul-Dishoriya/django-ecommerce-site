@@ -1,0 +1,31 @@
+{% extends "main.html" %}
+{% block content %}
+<main class="form-signin w-50 w-md-25 m-auto">
+    <form method="POST" action="{% url "add-product" %}">
+        {% csrf_token %}
+        <h1 class="h3 mb-3 fw-normal">Add Product</h1>
+        
+        <div class="form-floating">
+            <input type="text" class="form-control" name="name" placeholder="Title">
+            <label for="floatingPassword">Title</label>
+        </div>
+        <div class="form-floating mt-2">
+            <input type="text" class="form-control" name="category" placeholder="Sub-title">
+            <label for="floatingPassword">Category</label>
+        </div>
+        <div class="form-floating mt-2">
+            <input type="text" class="form-control" name="price" placeholder="Sub-title">
+            <label for="floatingPassword">Price</label>    
+        </div>
+        <div class="form-floating mt-2">
+            <textarea name="description" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px"></textarea>
+            <label for="floatingTextarea2">Description</label>
+        </div>
+        
+        <div class="form-floating mt-2">
+            <button class="mt-5 btn btn-primary w-100 py-2" type="Submit" >Submit</button>
+        </div>
+    </form>
+</main>
+<p class="mt-1 text-white">Categories can only be : [sports, gaming, cosmetics, food, electronic, mobile, cloths].<br/> For mutitple categories add space b.w them </p>
+{% endblock content %}
